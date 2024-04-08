@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "833604486285",
+    "project_id": "taskit-7aa86",
+    "storage_bucket": "taskit-7aa86.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:833604486285:android:6678d90690231d62a8cec4",
+        "android_client_info": {
+          "package_name": "com.example.taskit"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJ067BCWw1zaCPqDltEpKOd08Gw43nOpA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
