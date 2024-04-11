@@ -7,6 +7,7 @@ import 'package:taskit/modal/taskitmodal.dart';
 import 'package:taskit/views/utility/categorylist.dart';
 
 import '../../controller/taskitcontroller.dart';
+import '../../controller/theme_controller.dart';
 import '../../modal/categorymodal.dart';
 
 class AddTaskPage extends StatelessWidget {
@@ -20,6 +21,7 @@ class AddTaskPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
+    bool isDark = Provider.of<ThemeController>(context).isDark;
     return Scaffold(
       appBar: AppBar(
         elevation: 0,
@@ -28,7 +30,6 @@ class AddTaskPage extends StatelessWidget {
             style: GoogleFonts.openSans(
               fontWeight: FontWeight.w600,
               fontSize: 16,
-              color: Colors.black,
             )),
       ),
       body: Padding(
@@ -47,7 +48,6 @@ class AddTaskPage extends StatelessWidget {
                         style: GoogleFonts.openSans(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
-                          color: Colors.black,
                         ),
                       ),
                       SizedBox(
@@ -74,7 +74,9 @@ class AddTaskPage extends StatelessWidget {
                               fontSize: 18),
                           decoration: InputDecoration(
                             filled: true,
-                            fillColor: Color(0xE7EBEBF1),
+                            fillColor: isDark
+                                ? Colors.black.withOpacity(0.5)
+                                : Color(0xE7EBEBF1),
                             hintText: 'Enter your task title',
                             hintStyle: GoogleFonts.openSans(
                                 color: Colors.grey,
@@ -158,7 +160,9 @@ class AddTaskPage extends StatelessWidget {
                       Container(
                         width: size.width * 0.45,
                         decoration: BoxDecoration(
-                            color: Color(0xE7EBEBF1),
+                            color: isDark
+                                ? Colors.black.withOpacity(0.5)
+                                : Color(0xE7EBEBF1),
                             border: Border.all(color: Colors.grey, width: 2),
                             borderRadius: BorderRadius.circular(12)),
                         child: Padding(
@@ -201,7 +205,9 @@ class AddTaskPage extends StatelessWidget {
                           Container(
                             width: size.width * 0.45,
                             decoration: BoxDecoration(
-                                color: Color(0xE7EBEBF1),
+                                color: isDark
+                                    ? Colors.black.withOpacity(0.5)
+                                    : Color(0xE7EBEBF1),
                                 border:
                                     Border.all(color: Colors.grey, width: 2),
                                 borderRadius: BorderRadius.circular(12)),
@@ -234,7 +240,9 @@ class AddTaskPage extends StatelessWidget {
                           Container(
                             width: size.width * 0.32,
                             decoration: BoxDecoration(
-                                color: Color(0xE7EBEBF1),
+                                color: isDark
+                                    ? Colors.black.withOpacity(0.5)
+                                    : Color(0xE7EBEBF1),
                                 border:
                                     Border.all(color: Colors.grey, width: 2),
                                 borderRadius: BorderRadius.circular(12)),
@@ -272,7 +280,6 @@ class AddTaskPage extends StatelessWidget {
                         style: GoogleFonts.openSans(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
-                          color: Colors.black,
                         ),
                       ),
                       SizedBox(
@@ -298,7 +305,9 @@ class AddTaskPage extends StatelessWidget {
                             fontSize: 18),
                         decoration: InputDecoration(
                           filled: true,
-                          fillColor: Color(0xE7EBEBF1),
+                          fillColor: isDark
+                              ? Colors.black.withOpacity(0.5)
+                              : Color(0xE7EBEBF1),
                           hintText: 'Enter your task title',
                           hintStyle: GoogleFonts.openSans(
                               color: Colors.grey,
@@ -347,7 +356,9 @@ class AddTaskPage extends StatelessWidget {
                     height: size.height * 0.07,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
-                      color: Color(0xff0f1933),
+                      color: isDark
+                          ? Colors.white.withOpacity(0.5)
+                          : Color(0xff0f1933),
                     ),
                     child: Text('ADD Task',
                         style: GoogleFonts.openSans(

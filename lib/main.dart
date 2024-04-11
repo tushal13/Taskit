@@ -8,6 +8,7 @@ import 'package:taskit/views/screen/homepage.dart';
 import 'package:taskit/views/screen/loginpage.dart';
 
 import 'controller/registercontroller.dart';
+import 'controller/theme_controller.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
@@ -18,6 +19,7 @@ Future<void> main() async {
   runApp(MultiProvider(providers: [
     ChangeNotifierProvider(create: (_) => RegistrationController()),
     ChangeNotifierProvider(create: (_) => TaskitController()),
+    ChangeNotifierProvider(create: (_) => ThemeController()),
   ], child: MyApp()));
 }
 
@@ -29,11 +31,13 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Taskit',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-        textTheme: GoogleFonts.openSansTextTheme(),
-      ),
+      theme: Provider.of<ThemeController>(context).isDark
+          ? ThemeData.dark()
+          : ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Color(0xff0f1933)),
+              useMaterial3: true,
+              textTheme: GoogleFonts.openSansTextTheme(),
+            ),
       home: FBAuthHelper.fbAuthHelper.auth.currentUser == null
           ? LoginPage()
           : HomePage(),

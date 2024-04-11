@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:taskit/controller/taskitcontroller.dart';
+import 'package:taskit/controller/theme_controller.dart';
 import 'package:taskit/modal/taskitmodal.dart';
 
 import '../../helper/fb_storehelper.dart';
@@ -11,6 +12,7 @@ class TaskitTile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isDark = Provider.of<ThemeController>(context).isDark;
     String remi = Provider.of<TaskitController>(context)
         .convertDateFormat(task.duedate ?? '');
     return Container(
@@ -18,7 +20,7 @@ class TaskitTile extends StatelessWidget {
       margin: EdgeInsets.only(bottom: 10),
       child: Row(mainAxisSize: MainAxisSize.max, children: [
         Radio(
-            activeColor: Colors.black.withOpacity(0.5),
+            activeColor: isDark ? Colors.white : Colors.black.withOpacity(0.5),
             value: task.status,
             groupValue: true,
             onChanged: (value) async {
@@ -40,11 +42,19 @@ class TaskitTile extends StatelessWidget {
                     : TextDecoration.none,
                 decorationThickness: 5,
                 decorationColor: task.status == true
-                    ? Colors.black.withOpacity(0.5)
-                    : Colors.black,
+                    ? isDark
+                        ? Colors.white.withOpacity(0.5)
+                        : Colors.black.withOpacity(0.5)
+                    : isDark
+                        ? Colors.white
+                        : Colors.black.withOpacity(0.5),
                 color: task.status == true
-                    ? Colors.black.withOpacity(0.5)
-                    : Colors.black,
+                    ? isDark
+                        ? Colors.white.withOpacity(0.5)
+                        : Colors.black.withOpacity(0.5)
+                    : isDark
+                        ? Colors.white
+                        : Colors.black,
               ),
             ),
             Text(
@@ -60,7 +70,7 @@ class TaskitTile extends StatelessWidget {
         ),
       ]),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: isDark ? Colors.black.withOpacity(0.5) : Colors.white,
           borderRadius: BorderRadius.circular(10),
           boxShadow: [
             BoxShadow(

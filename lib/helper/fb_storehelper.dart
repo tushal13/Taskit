@@ -85,41 +85,6 @@ class FbStoreHelper {
     }
   }
 
-  //
-  // Stream<QuerySnapshot<Map<String, dynamic>>> fetchHistory() {
-  //   return firestore
-  //       .collection(usersCollection)
-  //       .doc(currentUser)
-  //       .collection('PastQuotes')
-  //       .snapshots();
-  // }
-  //
-  // Stream fetchyourQuotes() {
-  //   return firestore
-  //       .collection(usersCollection)
-  //       .doc(currentUser)
-  //       .collection('Quotes')
-  //       .snapshots();
-  // }
-  //
-  // Stream<DocumentSnapshot<Map<String, dynamic>>> fetchPrefrance() {
-  //   return firestore
-  //       .collection(usersCollection)
-  //       .doc(currentUser)
-  //       .collection('Prefrance')
-  //       .doc('Prefrance')
-  //       .snapshots();
-  // }
-  //
-  // Stream<DocumentSnapshot<Map<String, dynamic>>> fetchCoins() {
-  //   return firestore
-  //       .collection(usersCollection)
-  //       .doc(currentUser)
-  //       .collection('Coins')
-  //       .doc('Coins')
-  //       .snapshots();
-  // }
-  //
   Stream<QuerySnapshot<Map<String, dynamic>>> fetchTasks() {
     return firestore
         .collection(usersCollection)
