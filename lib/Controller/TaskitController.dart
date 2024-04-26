@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:taskit/helper/FbNotificationeHelper.dart';
 
 class TaskitController extends ChangeNotifier {
   String category = "";
   String date = DateFormat.yMMMd().format(DateTime.now());
   String duadate = DateFormat.yMMMd().format(DateTime.now());
   String duatime = '${TimeOfDay.now().hour % 12}:${TimeOfDay.now().minute}';
+
   void changeCategory(String newCategory) {
     category = newCategory;
     notifyListeners();
@@ -36,9 +38,9 @@ class TaskitController extends ChangeNotifier {
 
     if (pickDate != null) {
       String formattedDate = DateFormat.yMMMd().format(pickDate);
+      notifyListeners();
       duadate = formattedDate;
     }
-    notifyListeners();
   }
 
   showMyTime(BuildContext context) async {
@@ -62,7 +64,7 @@ class TaskitController extends ChangeNotifier {
   String convertDateFormat(String dateString) {
     DateTime date = parseDate(dateString);
     DateTime now = DateTime.now();
-    Duration duration = now.difference(date).abs(); // Take the absolute value
+    Duration duration = now.difference(date).abs();
 
     if (duration.inDays == 0) {
       // If difference is less than 24 hours, return the difference in hours
@@ -76,5 +78,14 @@ class TaskitController extends ChangeNotifier {
       // If difference is more than 24 hours, return the difference in days
       return '${duration.inDays} days  remaining';
     }
+  }
+
+  sendNotification(String title, String body, String duadate) {
+    FbNHelper.fbNHelper.sendSimpleLocalNotification(
+      title: title,
+      body: body,
+      date: duadate,
+    );
+    print("notification not sent");
   }
 }

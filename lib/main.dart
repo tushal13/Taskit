@@ -2,13 +2,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'package:taskit/controller/taskitcontroller.dart';
-import 'package:taskit/helper/fb_authhelper.dart';
-import 'package:taskit/views/screen/homepage.dart';
-import 'package:taskit/views/screen/loginpage.dart';
+import 'package:taskit/controller/TaskitController.dart';
+import 'package:taskit/helper/FbAuthHelper.dart';
+import 'package:taskit/views/screen/HomePage.dart';
+import 'package:taskit/views/screen/LoginPage.dart';
 
-import 'controller/registercontroller.dart';
-import 'controller/theme_controller.dart';
+import 'controller/RegisterController.dart';
+import 'controller/ThemeController.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {

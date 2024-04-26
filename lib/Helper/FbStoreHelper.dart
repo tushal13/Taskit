@@ -1,7 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:taskit/modal/taskitmodal.dart';
 
-import 'fb_authhelper.dart';
+import '../Model/TaskitModal.dart';
+import 'FbAuthHelper.dart';
 
 class FbStoreHelper {
   FbStoreHelper._();

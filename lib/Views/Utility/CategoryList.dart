@@ -1,4 +1,4 @@
-import '../../modal/categorymodal.dart';
+import '../../Model/CategoryModal.dart';
 
 List<CategoryModal> categories = [
   CategoryModal(name: 'General', icon: 'assets/images/general.png'),

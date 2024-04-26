@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
-import 'package:taskit/helper/fb_storehelper.dart';
-import 'package:taskit/modal/taskitmodal.dart';
-import 'package:taskit/views/utility/categorylist.dart';
+import 'package:taskit/helper/FbStoreHelper.dart';
+import 'package:taskit/views/utility/CategoryList.dart';
 
-import '../../controller/taskitcontroller.dart';
-import '../../controller/theme_controller.dart';
-import '../../modal/categorymodal.dart';
+import '../../Model/CategoryModal.dart';
+import '../../Model/TaskitModal.dart';
+import '../../controller/TaskitController.dart';
+import '../../controller/ThemeController.dart';
 
 class AddTaskPage extends StatelessWidget {
   AddTaskPage({super.key});
@@ -346,6 +346,9 @@ class AddTaskPage extends StatelessWidget {
 
                       task.duatime =
                           '${TimeOfDay.now().hour % 12}:${TimeOfDay.now().minute}';
+
+                      // task.sendNotification(
+                      //     'New Task Added', taskit.title ?? '');
 
                       Navigator.of(context).pop();
                     }

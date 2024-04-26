@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:taskit/views/screen/homepage.dart';
-import 'package:taskit/views/screen/registrationpage.dart';
+import 'package:taskit/views/screen/HomePage.dart';
+import 'package:taskit/views/screen/RegistrationPage.dart';
 
-import '../../controller/registercontroller.dart';
-import '../../helper/fb_authhelper.dart';
+import '../../controller/RegisterController.dart';
+import '../../helper/FbAuthHelper.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({super.key});

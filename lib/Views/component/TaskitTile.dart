@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:taskit/controller/taskitcontroller.dart';
-import 'package:taskit/controller/theme_controller.dart';
-import 'package:taskit/modal/taskitmodal.dart';
+import 'package:taskit/controller/TaskitController.dart';
+import 'package:taskit/controller/ThemeController.dart';
 
-import '../../helper/fb_storehelper.dart';
+import '../../Model/TaskitModal.dart';
+import '../../helper/FbStoreHelper.dart';
 
 class TaskitTile extends StatelessWidget {
   TaskitModal task;

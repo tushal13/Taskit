@@ -1,13 +1,15 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:taskit/views/component/taskittile.dart';
-import 'package:taskit/views/screen/addtask.dart';
+import 'package:taskit/views/component/TaskitTile.dart';
+import 'package:taskit/views/screen/AddTask.dart';
 
-import '../../controller/theme_controller.dart';
-import '../../helper/fb_storehelper.dart';
-import '../../modal/taskitmodal.dart';
+import '../../Model/TaskitModal.dart';
+import '../../controller/TaskitController.dart';
+import '../../controller/ThemeController.dart';
+import '../../helper/FbStoreHelper.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -75,6 +77,22 @@ class HomePage extends StatelessWidget {
                     List<TaskitModal> tasks = myData
                         .map((e) => TaskitModal.fromMap(e.data()))
                         .toList();
+                    tasks.forEach((task) {
+                      if (task.duedate != null && task.duetime != null) {
+                        String formattedDate =
+                            '${task.duedate} ${task.duetime}';
+                        String scheduledDateTime =
+                            DateFormat('yyyy-MM-dd HH:mm:ss').format(
+                          DateFormat('MMM d, yyyy HH:mm').parse(formattedDate)!,
+                        );
+                        Provider.of<TaskitController>(context, listen: false)
+                            .sendNotification(
+                          'Task Due',
+                          task.title ?? '',
+                          scheduledDateTime,
+                        );
+                      }
+                    });
                     if (!snapshot.hasData) {
                       return Center(
                         child: CircularProgressIndicator(),

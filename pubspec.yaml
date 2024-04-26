@@ -43,6 +43,9 @@ dependencies:
   page_transition: any
   firebase_auth: any
   google_fonts: 6.1.0
+  flutter_local_notifications: any
+  firebase_messaging: any
+  timezone: any
   google_sign_in: any
   flutter_launcher_icons: any
 

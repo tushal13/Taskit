@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:provider/provider.dart';
-import 'package:taskit/controller/registercontroller.dart';
-import 'package:taskit/helper/fb_authhelper.dart';
-import 'package:taskit/views/screen/loginpage.dart';
+import 'package:taskit/controller/RegisterController.dart';
+import 'package:taskit/helper/FbAuthHelper.dart';
+import 'package:taskit/views/screen/LoginPage.dart';
 
 class RegisterPage extends StatelessWidget {
   RegisterPage({super.key});
